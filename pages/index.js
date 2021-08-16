@@ -1,7 +1,7 @@
 import Hero from '../components/Hero';
 import Programs from '../components/Programs';
 import Testimonial from '../components/Testimonial';
-import BlogLatest from '../components/BlogLatest';
+import BlogLatest from '../components/LatestArticles/BlogLatest';
 
 export default function Home() {
 	return (
@@ -15,6 +15,7 @@ export default function Home() {
 			<Programs />
 
 			{/*--section for the blog--*/}
+			<BlogLatest />
 		</>
 	);
 }
