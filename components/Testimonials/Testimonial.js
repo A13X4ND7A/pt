@@ -1,8 +1,8 @@
 import * as FaIcons from 'react-icons/fa';
 import {useState, useEffect} from 'react';
 import {sanityClient, PortableText} from '../../lib/sanity';
-import {motion} from 'framer-motion';
-import {data} from 'autoprefixer';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import {Carousel} from 'react-responsive-carousel';
 
 const Testimonial = () => {
 	const [testimonialData, setTestimonialData] = useState(null);
@@ -14,7 +14,8 @@ const Testimonial = () => {
                 _id,
 			clientName,
             testimonialText,
-			         }`
+			testimonialExcerpt,
+		}`
 			)
 			.then((data) => setTestimonialData(data))
 			.catch(console.error);
@@ -30,24 +31,33 @@ const Testimonial = () => {
 					<h2 className='text-gray-300 uppercase text-2xl flex justify-center -ml-6 md:text-4xl lg:text-6xl'>
 						Testimonials
 					</h2>
-					{testimonialData?.length > 0 &&
-						testimonialData.map((testimonial) => {
-							return (
-								<div className='flex flex-row p-12 text-gray-200 text-xs md:text-xl lg:max-w-2xl items-center mx-auto'>
-									<span className='text-2xl text-gray-200 block pr-4'>
-										<FaIcons.FaQuoteLeft />
-									</span>
-									<p>
-										<PortableText blocks={testimonial.testimonialText} />
-										<br />
-										<span className='font-xs font-bold text-gray-200 flex justify-end'>{testimonial.clientName}</span>
-									</p>
-									<span className='text-2xl text-gray-200 block pl-4'>
-										<FaIcons.FaQuoteRight />
-									</span>
-								</div>
-							);
-						})}
+					<Carousel
+						showArrows={false}
+						infiniteLoop={true}
+						showThumbs={false}
+						showStatus={false}
+						autoPlay={true}
+						showIndicators={false}
+						interval={7000}>
+						{testimonialData?.length > 0 &&
+							testimonialData.map((testimonial) => {
+								return (
+									<div className='flex flex-row p-12 text-gray-200 text-xs md:text-xl lg:max-w-2xl items-center mx-auto'>
+										<span className='text-2xl text-gray-200 block pr-4'>
+											<FaIcons.FaQuoteLeft />
+										</span>
+										<p>
+											{testimonial.testimonialExcerpt}
+											<br />
+											<span className='font-xs font-bold text-gray-200 flex justify-end'>{testimonial.clientName}</span>
+										</p>
+										<span className='text-2xl text-gray-200 block pl-4'>
+											<FaIcons.FaQuoteRight />
+										</span>
+									</div>
+								);
+							})}
+					</Carousel>
 				</div>
 			</section>
 		</>
