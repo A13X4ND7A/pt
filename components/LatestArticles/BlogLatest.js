@@ -87,7 +87,7 @@ const BlogLatest = () => {
 			backgroundColor: '#d00c2a',
 		},
 	};
-	console.log(postData);
+
 	return (
 		<>
 			<section className='pt-6'>

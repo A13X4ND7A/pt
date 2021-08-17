@@ -1,6 +1,6 @@
 import Hero from '../components/Hero';
 import Programs from '../components/Programs';
-import Testimonial from '../components/Testimonial';
+import Testimonial from '../components/Testimonials/Testimonial';
 import BlogLatest from '../components/LatestArticles/BlogLatest';
 
 export default function Home() {
