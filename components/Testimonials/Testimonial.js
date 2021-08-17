@@ -1,6 +1,6 @@
 import * as FaIcons from 'react-icons/fa';
 import {useState, useEffect} from 'react';
-import {sanityClient, PortableText} from '../../lib/sanity';
+import {sanityClient} from '../../lib/sanity';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import {Carousel} from 'react-responsive-carousel';
 
@@ -17,7 +17,7 @@ const Testimonial = () => {
 			testimonialExcerpt,
 		}`
 			)
-			.then((data) => setTestimonialData(data))
+			.then((data) => setTestimonialData(data)) //pull out the data from sanity and set it to the testimonial data variable
 			.catch(console.error);
 	}, []);
 
@@ -31,6 +31,7 @@ const Testimonial = () => {
 					<h2 className='text-gray-300 uppercase text-2xl flex justify-center -ml-6 md:text-4xl lg:text-6xl'>
 						Testimonials
 					</h2>
+					{/*Carousel options to get it to automatically move on the page*/}
 					<Carousel
 						showArrows={false}
 						infiniteLoop={true}
@@ -39,6 +40,7 @@ const Testimonial = () => {
 						autoPlay={true}
 						showIndicators={false}
 						interval={7000}>
+							{/*map over the tesimonials and pull out the client name and the excerpt*/}
 						{testimonialData?.length > 0 &&
 							testimonialData.map((testimonial) => {
 								return (

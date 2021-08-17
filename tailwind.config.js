@@ -39,6 +39,7 @@ module.exports = {
 				'women-image': "url('/caley-vanular-NGxd0beBLps-unsplash.jpg')",
 				'group-image': "url('/gabin-vallet-J154nEkpzlQ-unsplash.jpg')",
 				'testimonial-image': "url('/scott-webb-gWerBZuKM9c-unsplash.jpg')",
+				'testBg': "url('/bg-test.png')",
 			}),
 		},
 	},
