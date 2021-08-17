@@ -71,14 +71,17 @@ const mainVariants = {
 export default function Testimonials({testimonials}) {
 	if (!testimonials) return <h1>No Testimonials to show </h1>;
 	return (
-		<main className='mt-22 min-h-screen '>
-			<section className='bg-testBg bg-cover bg-no-repeat h-96'>
-				<h4 className='flex justify-center text-primary-default mt-28 -ml-6 md:text-lg lg:text-2xl'>
-					What My Clients Say
-				</h4>
-				<h1 className='text-darkCol-default uppercase text-2xl flex justify-center -ml-6 md:text-4xl lg:text-6xl'>
-					Testimonials
-				</h1>
+		<>
+			<section className='bg-testBg bg-cover bg-center mb-8'>
+				<div className='max-w-6xl flex content-center pt-16 pb-14 md:pt-36 md:pb-32 px-4 md:px-20 lg:px-32'>
+					<motion.h1
+						variants={headerVariants}
+						initial='initial'
+						animate='animate'
+						className='uppercase text-primary-default leading-5 md:text-4xl lg:text-6xl md:tracking-widest font-thin'>
+						Testimonials
+					</motion.h1>
+				</div>
 			</section>
 			<ul>
 				{testimonials.length > 0 &&
@@ -93,7 +96,7 @@ export default function Testimonials({testimonials}) {
 						);
 					})}
 			</ul>
-		</main>
+		</>
 	);
 }
 

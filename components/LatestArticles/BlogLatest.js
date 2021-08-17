@@ -104,7 +104,7 @@ const BlogLatest = () => {
 							return (
 								<motion.li key={post._id} variants={listItemVariants}>
 									<Link href={`/post/${post.slug.current}`}>
-										<motion.a variants={actionVariants} whileHover='hover' whileTap='tap' className='block'>
+										<motion.a variants={actionVariants} whileTap='tap' className='block'>
 											<div className='relative p-2 shadow-lg rounded-lg bg-darkCol-default m-4'>
 												<div className='absolute h-full w-full flex items-center justify-center'>
 													<div className='rounded p-8'>
@@ -118,7 +118,7 @@ const BlogLatest = () => {
 															variants={buttonVariants}
 															whileHover='hover'
 															whileTap='tap'
-															className='flex mx-auto bg-darkCol-default text-primary-default uppercase border-2 border-primary-default py-2 px-4 text-xs mt-4 rounded-sm items-center justify-center '>
+															className='flex mx-auto bg-darkCol-default text-primary-default uppercase border-2 border-primary-default py-2 px-4 text-xs mt-4 rounded-sm items-center justify-center absolute bottom-7 right-12'>
 															Read Article
 														</motion.button>
 													</div>

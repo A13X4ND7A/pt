@@ -45,33 +45,46 @@ const mainVariants = {
 
 export default function About({author}) {
 	return (
-		<div className='container grid md:grid-cols-3 gap-4 mx-auto mt-28'>
-			<Image
-				className='md:col-span-1 max-w-100'
-				alt={author.name}
-				src={urlFor(author.authorImage).url()}
-				layout='intrinsic'
-				height={4000}
-				width={6000}
-				objectFit='cover'
-				q='1'></Image>
-			<div className='md:col-span-2'>
-				<motion.h1
-					variants={headerVariants}
-					initial='initial'
-					animate='animate'
-					className='text-2xl lg:text-6xl mb-4 font-thin uppercase'>
-					{author.name}
-				</motion.h1>
-				<motion.div
-					className='px-2 prose lg:prose-xl text-primary-light font-trade font-normal'
-					variants={mainVariants}
-					initial='initial'
-					animate='animate'>
-					<PortableText blocks={author.bio} />
-				</motion.div>
+		<>
+			<section className='bg-about-bg bg-cover bg-center md:mb-8'>
+				<div className='max-w-6xl flex content-center pt-16 pb-14 md:pt-36 md:pb-32 px-4 md:px-16 lg:px-20'>
+					<motion.h1
+						variants={headerVariants}
+						initial='initial'
+						animate='animate'
+						className='uppercase text-primary-default leading-5 md:text-4xl lg:text-6xl md:tracking-widest font-thin'>
+						About Scott
+					</motion.h1>
+				</div>
+			</section>
+			<div className='container grid md:grid-cols-3 gap-4 mx-auto'>
+				<Image
+					className='md:col-span-1 max-w-100'
+					alt={author.name}
+					src={urlFor(author.authorImage).url()}
+					layout='intrinsic'
+					height={4000}
+					width={6000}
+					objectFit='cover'
+					q='1'></Image>
+				<div className='md:col-span-2'>
+					<motion.h2
+						variants={headerVariants}
+						initial='initial'
+						animate='animate'
+						className='text-2xl lg:text-6xl mb-4 font-thin uppercase ml-4 md:ml-0'>
+						{author.name}
+					</motion.h2>
+					<motion.div
+						className='px-2 prose lg:prose-xl text-primary-light font-trade font-normal'
+						variants={mainVariants}
+						initial='initial'
+						animate='animate'>
+						<PortableText blocks={author.bio} />
+					</motion.div>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 

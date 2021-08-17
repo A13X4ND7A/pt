@@ -67,6 +67,9 @@ const buttonVariants = {
 	hover: {
 		scale: 1.1,
 		boxShadow: '0px 0px 8px rgb(255,255,255)',
+		transition: {
+			yoyo: 5,
+		},
 	},
 
 	tap: {
@@ -79,62 +82,61 @@ export default function Blog({posts}) {
 	if (!posts) return <Loader />;
 	return (
 		<>
-			<main className='mt-28 min-h-screen'>
-				<section className='container mx-auto'>
-					<article className='shadow-lg rounded-lg mb-8 bg-primary-default'>
-						<motion.h1
-							variants={headerVariants}
-							initial='initial'
-							animate='animate'
-							className='text-2xl md:text-6xl font-thin uppercase flex justify-center pt-4'>
-							Blog
-						</motion.h1>
-
-						<motion.ul
-							variants={listVariants}
-							initial='initial'
-							animate={posts.length > 0 && 'animate'}
-							className='container mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'>
-							{posts?.length > 0 &&
-								posts.map((post) => {
-									return (
-										<motion.li key={post._id} variants={listItemVariants}>
-											<Link href={`/post/${post.slug.current}`}>
-												<motion.a variants={actionVariants} whileHover='hover' whileTap='tap' className='block'>
-													<div className='relative p-2 shadow-lg rounded-lg mb-10 bg-darkCol-default m-4'>
-														<div className='absolute h-full w-full flex items-center justify-center'>
-															<div className='rounded p-8'>
-																<h1 className='lg:text-2xl mb-4 font-thin uppercase bg-white bg-opacity-75 px-1 py-1 rounded flex flex-col'>
-																	{post.title}
-																	<span className='text-xs flex justify-end'>
-																		<Date dateString={post.publishedAt} />
-																	</span>
-																</h1>
-																<motion.button
-																	variants={buttonVariants}
-																	whileHover='hover'
-																	whileTap='tap'
-																	className='flex mx-auto bg-darkCol-default text-primary-default uppercase border-2 border-primary-default py-2 px-4 text-xs mt-4 rounded-sm items-center justify-center '>
-																	Read Article
-																</motion.button>
-															</div>
-														</div>
-														<img
-															src={urlFor(post.mainImage).url()}
-															alt={post.title}
-															className='w-full object-cover rounded-t'
-															style={{height: '250px'}}
-														/>
+			<section className='bg-about-bg bg-cover bg-center md:mb-8'>
+				<div className='max-w-6xl flex content-center pt-16 pb-14 md:pt-36 md:pb-32 px-20 md:px-28 lg:px-36'>
+					<motion.h1
+						variants={headerVariants}
+						initial='initial'
+						animate='animate'
+						className='uppercase text-primary-default leading-5 md:text-4xl lg:text-6xl md:tracking-widest font-thin'>
+						Blog
+					</motion.h1>
+				</div>
+			</section>
+			<section className='container mx-auto'>
+				<motion.ul
+					variants={listVariants}
+					initial='initial'
+					animate={posts.length > 0 && 'animate'}
+					className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+					{posts?.length > 0 &&
+						posts.map((post) => {
+							return (
+								<motion.li key={post._id} variants={listItemVariants}>
+									<Link href={`/post/${post.slug.current}`}>
+										<motion.a variants={actionVariants} whileTap='tap' className='block'>
+											<div className='relative p-2 shadow-lg rounded-lg mb-10 bg-darkCol-default m-4'>
+												<div className='absolute h-full w-full flex items-center justify-center'>
+													<div className='rounded p-8'>
+														<h2 className='lg:text-lg mb-4 font-thin uppercase bg-white bg-opacity-75 px-1 py-1 rounded flex flex-col'>
+															{post.title}
+															<span className='text-xs flex justify-end'>
+																<Date dateString={post.publishedAt} />
+															</span>
+														</h2>
+														<motion.button
+															variants={buttonVariants}
+															whileHover='hover'
+															whileTap='tap'
+															className='flex mx-auto bg-darkCol-default text-primary-default uppercase border-2 border-primary-default py-2 px-4 text-xs mt-4 rounded-sm items-center justify-center absolute bottom-7 right-12  '>
+															Read Article
+														</motion.button>
 													</div>
-												</motion.a>
-											</Link>
-										</motion.li>
-									);
-								})}
-						</motion.ul>
-					</article>
-				</section>
-			</main>
+												</div>
+												<img
+													src={urlFor(post.mainImage).url()}
+													alt={post.title}
+													className='w-full object-cover rounded-t'
+													style={{height: '250px'}}
+												/>
+											</div>
+										</motion.a>
+									</Link>
+								</motion.li>
+							);
+						})}
+				</motion.ul>
+			</section>
 		</>
 	);
 }
