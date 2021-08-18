@@ -13,8 +13,7 @@ const Testimonial = () => {
 				`*[_type == "testimonial"] {
                 _id,
 			clientName,
-            testimonialText,
-			testimonialExcerpt,
+           	testimonialExcerpt,
 		}`
 			)
 			.then((data) => setTestimonialData(data)) //pull out the data from sanity and set it to the testimonial data variable
@@ -40,7 +39,7 @@ const Testimonial = () => {
 						autoPlay={true}
 						showIndicators={false}
 						interval={7000}>
-							{/*map over the tesimonials and pull out the client name and the excerpt*/}
+						{/*map over the tesimonials and pull out the client name and the excerpt*/}
 						{testimonialData?.length > 0 &&
 							testimonialData.map((testimonial) => {
 								return (

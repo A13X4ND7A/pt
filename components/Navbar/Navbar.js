@@ -13,7 +13,7 @@ const Navbar = () => {
 		<>
 			{/* Hamburger menu icon */}
 			<IconContext.Provider value={'#acb7c1'}>
-				<div className='flex fixed items-center justify-between h-16 top-0 px-4 mx-auto text-primary-default z-10 w-screen py-2 md:h-24 2xl:px-72 mb-16 '>
+				<div className='flex fixed items-center justify-between h-16 top-0 px-4 mx-auto text-primary-default z-10 w-screen py-2 md:h-24 2xl:px-72 mb-16 bg-darkCol-default md:bg-transparent shadow-2xl md:shadow-none'>
 					<Logo />
 					{/* button for the sidebar. On click opens the sidebar ul */}
 					<button className='flex items-end text-2xl px-12' onClick={showSidebar}>

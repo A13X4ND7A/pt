@@ -80,6 +80,9 @@ const BlogLatest = () => {
 		hover: {
 			scale: 1.1,
 			boxShadow: '0px 0px 8px rgb(255,255,255)',
+			transition: {
+					yoyo: 5,
+				},
 		},
 
 		tap: {

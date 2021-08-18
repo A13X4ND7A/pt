@@ -32,7 +32,7 @@ const Hero = () => {
 							<br />
 							perfection
 						</p>
-						<Link href='/blog/'>
+						<Link href='/contact/'>
 							<motion.button
 								variants={buttonVariants}
 								whileHover='hover'

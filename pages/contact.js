@@ -4,8 +4,8 @@ const contact = () => {
 	return (
 		<>
 			<section className='bg-contact-bg bg-cover bg-center mb-8'>
-				<div className='max-w-6xl flex content-center pt-16 pb-14 md:pt-36 md:pb-32 px-4'>
-					<h1 className='uppercase text-primary-default leading-5 md:text-4xl lg:text-6xl md:tracking-widest font-thin'>
+				<div className='max-w-6xl flex content-center pt-20 pb-14 md:pt-36 md:pb-32 px-4'>
+					<h1 className='uppercase text-primary-default leading-5 md:text-4xl lg:text-6xl md:tracking-widest font-thin pt-8 md:ml-14 lg:ml-32'>
 						Get in touch!
 					</h1>
 				</div>

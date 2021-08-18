@@ -25,12 +25,12 @@ const Services = () => {
 	return (
 		<>
 			<section className='bg-services-bg bg-cover bg-center md:mb-8'>
-				<div className='max-w-6xl flex content-center pt-16 pb-14 md:pt-36 md:pb-32 px-4 md:px-20 lg:px-32'>
+				<div className='max-w-6xl flex content-center pt-20 pb-14 md:pt-36 md:pb-32 px-4 md:px-20 lg:px-32'>
 					<motion.h1
 						variants={headerVariants}
 						initial='initial'
 						animate='animate'
-						className='uppercase text-primary-default leading-5 md:text-4xl lg:text-6xl md:tracking-widest font-thin'>
+						className='uppercase text-primary-default leading-5 md:text-4xl lg:text-6xl md:tracking-widest font-thin pt-8'>
 						What I Offer
 					</motion.h1>
 				</div>
