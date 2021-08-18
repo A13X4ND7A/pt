@@ -19,6 +19,12 @@ export const MenuData = [
 		cName: 'navText',
 	},
 	{
+		title: 'testimonial',
+		path: '/testimonial',
+		icon: <BsIcons.BsChatSquareQuote />,
+		cName: 'navText',
+	},
+	{
 		title: 'services',
 		path: '/services',
 		icon: <BiIcons.BiDumbbell />,
