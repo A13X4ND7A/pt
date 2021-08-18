@@ -15,6 +15,7 @@ const Navbar = () => {
 			<IconContext.Provider value={'#acb7c1'}>
 				<div className='flex fixed items-center justify-between h-16 top-0 px-4 mx-auto text-primary-default z-10 w-screen py-2 md:h-24 2xl:px-72 mb-16 '>
 					<Logo />
+					{/* button for the sidebar. On click opens the sidebar ul */}
 					<button className='flex items-end text-2xl px-12' onClick={showSidebar}>
 						<svg
 							className='text-primary-lightest stroke-current'
@@ -30,15 +31,12 @@ const Navbar = () => {
 							</g>
 						</svg>
 					</button>
-					<div className='block lg:hidden'>
-						<NavbarLinks />
-					</div>
 				</div>
 
 				{/* when Icon is clicked add the class nav-menu-active else just nav menu. If clicked, show the menu with a close icon at the top */}
 				<div className={sidebar ? 'nav-menu active' : 'nav-menu'}>
 					<ul className='w-full flex flex-col px-8 md:px-12' onClick={showSidebar}>
-						<button className='px-8 mt-7 text-2xl ml-auto text-primary-default flex items-end'>
+						<button className='px-8 mt-7 text-2xl ml-auto text-primary-default flex items-end 2xl:px-72'>
 							<AiIcons.AiOutlineClose />
 						</button>
 

@@ -28,7 +28,11 @@ const listItem = {
 const NavbarLinks = () => {
 	return (
 		<>
-			<motion.ul variants={navVariants} initial='initial' animate={MenuData.length > 0 && 'animate'}>
+			<motion.ul
+				variants={navVariants}
+				initial='initial'
+				animate={MenuData.length > 0 && 'animate'}
+				className='flex flex-col md:items-end 2xl:px-72'>
 				{/* Maps through the data file and outputs the menu based upon the data in the file. */}
 				{MenuData.map((item, index) => {
 					return (
