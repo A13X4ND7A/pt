@@ -30,7 +30,8 @@ module.exports = {
 			},
 
 			fontFamily: {
-				trade: ['trade-gothic-next-condensed'],
+				tradeCondensed: ['Trade-Gothic-Next-Compressed'],
+				trade: ['trade-gothic-next'],
 			},
 
 			backgroundImage: (theme) => ({

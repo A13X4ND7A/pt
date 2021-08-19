@@ -60,16 +60,16 @@ export default function OnePost({data}) {
 		<main className='mt-28 min-h-screen '>
 			<section className='container mx-auto px-2'>
 				<article className='shadow-lg rounded-lg mb-4'>
-					<header className='relative'>
+					<div className='relative'>
 						<div className='absolute h-full w-full flex items-center justify-center'>
 							<div className='rounded p-12'>
-								<motion.h1
+								<motion.h2
 									variants={headerVariants}
 									initial='initial'
 									animate='animate'
 									className='text-2xl lg:text-6xl mb-4 font-thin uppercase bg-white bg-opacity-75 px-1 py-1 rounded'>
 									{onePost.title}
-								</motion.h1>
+								</motion.h2>
 							</div>
 						</div>
 						<img
@@ -78,7 +78,7 @@ export default function OnePost({data}) {
 							className='w-full object-cover rounded-t'
 							style={{height: '400px'}}
 						/>
-					</header>
+					</div>
 					<span className='block uppercase text-sm px-16 lg:px-48 mt-4 font-bold'>
 						<Date dateString={onePost.publishedAt} />
 					</span>

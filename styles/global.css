@@ -5,9 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-	@font-face {
-		font-family: trade-gothic-next-condensed, sans-serif;
-	}
+	
 }
 
 @layer components {
@@ -19,7 +17,7 @@
 	}
 
 	.navText {
-		@apply flex justify-start items-center w-full h-14 pt-2 pb-2 pr-4 text-primary-default font-normal uppercase hover:text-primary-lightest lg:inline-flex lg:w-auto lg:bg-transparent;
+		@apply flex justify-start items-center w-full h-14 pt-2 pb-2 pr-4 text-primary-default uppercase hover:text-primary-lightest lg:inline-flex lg:w-auto lg:bg-transparent lg:mb-12;
 	}
 
 	.nav-menu {

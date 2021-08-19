@@ -72,11 +72,11 @@ export default function About({author}) {
 						variants={headerVariants}
 						initial='initial'
 						animate='animate'
-						className='text-2xl lg:text-6xl mb-4 font-thin uppercase ml-4 md:ml-0'>
+						className='text-2xl lg:text-6xl mb-4 font-tradeCondensed uppercase ml-4 md:ml-0'>
 						{author.name}
 					</motion.h2>
 					<motion.div
-						className='px-2 prose lg:prose-xl text-primary-light font-trade font-normal'
+						className='px-2 prose lg:prose-xl text-primary-light font-trade'
 						variants={mainVariants}
 						initial='initial'
 						animate='animate'>

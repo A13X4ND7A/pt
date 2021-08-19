@@ -36,7 +36,7 @@ const Navbar = () => {
 				{/* when Icon is clicked add the class nav-menu-active else just nav menu. If clicked, show the menu with a close icon at the top */}
 				<div className={sidebar ? 'nav-menu active' : 'nav-menu'}>
 					<ul className='w-full flex flex-col px-8 md:px-12' onClick={showSidebar}>
-						<button className='px-8 mt-7 text-2xl ml-auto text-primary-default flex items-end 2xl:px-72'>
+						<button className='px-8 mt-7 text-2xl ml-auto text-primary-default flex items-end 2xl:px-72 lg:mb-8'>
 							<AiIcons.AiOutlineClose />
 						</button>
 

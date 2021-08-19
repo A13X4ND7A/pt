@@ -84,27 +84,30 @@ export default function Testimonials({testimonials}) {
 					</motion.h1>
 				</div>
 			</section>
-			<ul>
+			<ul className='font-trade'>
 				<motion.h2
 					variants={headerVariants}
 					initial='initial'
 					animate='animate'
-					className='text-2xl lg:text-4xl mb-2 font-thin uppercase ml-4 lg:ml-32'>
+					className='text-2xl lg:text-4xl mb-2 uppercase ml-4 lg:ml-32 font-tradeCondensed'>
 					Read what others have to say...
 				</motion.h2>
 				{testimonials.length > 0 &&
 					testimonials.map((testimonial) => {
 						return (
 							<li key={testimonial._id}>
-								<div className='flex flex-row p-12 text-darkCol-default text-xs md:text-xl lg:max-w-2xl items-center mx-auto'>
+								<div className='flex flex-row p-12 text-darkCol-default lg:max-w-2xl items-center mx-auto font-trade'>
 									<span className='text-2xl text-darkCol-default block pr-4'>
 										<FaIcons.FaQuoteLeft />
 									</span>
 									<p>
-										<PortableText className='text-darkCol-default' blocks={testimonial.testimonialText} />
+										<PortableText
+											className='text-darkCol-default prose lg:prose-xl'
+											blocks={testimonial.testimonialText}
+										/>
 
 										<br />
-										<span className='font-xs font-bold text-darkCol-default flex justify-end'>
+										<span className='font-xs font-bold text-darkCol-default flex justify-end font-tradeCondensed tracking-wide '>
 											{testimonial.clientName}
 										</span>
 									</p>

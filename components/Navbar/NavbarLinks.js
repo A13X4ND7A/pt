@@ -38,8 +38,8 @@ const NavbarLinks = () => {
 					return (
 						<motion.li key={index} className={item.cName} variants={listItem}>
 							<Link href={item.path}>
-								<a className='text-lg w-11/12 h-full flex items-center py-4'>
-									<span className='block text-primary-default mr-2'>{item.icon}</span>
+								<a className='text-lg w-11/12 h-full flex items-center py-4 lg:text-6xl mb-4 font-thin uppercase '>
+									<span className='block text-primary-default mr-2 lg:text-4xl lg:mr-6'>{item.icon}</span>
 									{item.title}
 								</a>
 							</Link>

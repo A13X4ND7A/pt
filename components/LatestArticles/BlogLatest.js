@@ -81,8 +81,8 @@ const BlogLatest = () => {
 			scale: 1.1,
 			boxShadow: '0px 0px 8px rgb(255,255,255)',
 			transition: {
-					yoyo: 5,
-				},
+				yoyo: 5,
+			},
 		},
 
 		tap: {
@@ -94,8 +94,12 @@ const BlogLatest = () => {
 	return (
 		<>
 			<section className='pt-6'>
-				<h4 className='flex justify-center text-primary-dark md:text-lg lg:text-2xl'>From my blog</h4>
-				<h2 className='text-darkCol uppercase text-2xl flex justify-center md:text-4xl lg:text-6xl'>Latest Articles</h2>
+				<h4 className='flex justify-center text-primary-dark md:text-lg lg:text-2xl font-tradeCondensed tracking-widest'>
+					From My Blog
+				</h4>
+				<h2 className='text-darkCol uppercase text-2xl flex justify-center md:text-4xl lg:text-6xl font-thin'>
+					Latest Articles
+				</h2>
 
 				<motion.ul
 					variants={listVariants}

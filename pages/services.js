@@ -4,11 +4,10 @@ import {motion} from 'framer-motion';
 import * as FaIcons from 'react-icons/fa';
 
 const servicesQuery = `*[_type =='services']{
-	
 	_id,
 	title,
 	servicesText,
-	'mainImage': image.asset->url
+	mainImage,
 	}`;
 
 //for the list UL
@@ -86,36 +85,46 @@ export default function Services({services}) {
 					</motion.h1>
 				</div>
 			</section>
-			<ul>
+			<ul className=''>
 				<motion.h2
 					variants={headerVariants}
 					initial='initial'
 					animate='animate'
-					className='text-2xl lg:text-4xl mb-2 font-thin uppercase ml-4 lg:ml-32'>
+					className='text-2xl lg:text-4xl mb-2 uppercase ml-4 lg:ml-32 font-tradeCondensed'>
 					What I offer...
 				</motion.h2>
 				{services.length > 0 &&
 					services.map((service) => {
 						return (
 							<li key={service._id}>
-								<div className='container grid md:grid-cols-3 gap-4 mx-auto'>
-									
-									<div className='md:col-span-2'>
-										<motion.h2
-											variants={headerVariants}
-											initial='initial'
-											animate='animate'
-											className='text-lg lg:text-2xl font-bold uppercase ml-4 md:ml-0'>
-											{service.title}
-										</motion.h2>
-										<motion.div
-											className='px-2 prose lg:prose-xl text-primary-light font-trade font-normal pb-8'
-											variants={mainVariants}
-											initial='initial'
-											animate='animate'>
-											<PortableText blocks={service.servicesText} />
-										</motion.div>
+								<div className='container mx-auto'>
+									<div className='relative'>
+										<div className='absolute h-full w-full flex items-center justify-center'>
+											<div className='rounded p-12'>
+												<motion.h2
+													variants={headerVariants}
+													initial='initial'
+													animate='animate'
+													className='text-2xl lg:text-6xl mb-4 font-thin uppercase bg-white bg-opacity-75 px-1 py-1 rounded'>
+													{service.title}
+												</motion.h2>
+											</div>
+										</div>
+										<img
+											src={urlFor(service.mainImage).url()}
+											alt={service.title}
+											className='w-full object-cover rounded-t'
+											style={{height: '400px'}}
+										/>
 									</div>
+
+									<motion.div
+										className='px-4 pb-12 pt-2 font-trade prose lg:prose-xl'
+										variants={mainVariants}
+										initial='initial'
+										animate='animate'>
+										<PortableText blocks={service.servicesText} />
+									</motion.div>
 								</div>
 							</li>
 						);
