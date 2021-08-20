@@ -47,7 +47,7 @@ const Testimonial = () => {
 										<span className='text-2xl text-gray-200 block pr-4'>
 											<FaIcons.FaQuoteLeft />
 										</span>
-										<p>
+										<p key={testimonial._id}>
 											{testimonial.testimonialExcerpt}
 											<br />
 											<span className='font-xs font-bold text-gray-200 flex justify-end'>{testimonial.clientName}</span>

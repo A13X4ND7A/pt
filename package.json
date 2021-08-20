@@ -1,25 +1,26 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@sanity/client": "^2.14.0",
-    "date-fns": "^2.23.0",
-    "framer-motion": "^4.1.17",
-    "next": "latest",
-    "next-images": "^1.8.1",
-    "next-sanity": "^0.4.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-responsive-carousel": "^3.2.20"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.3.1",
-    "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.7"
-  }
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@googlemaps/js-api-loader": "^1.12.2",
+		"@sanity/client": "^2.14.0",
+		"date-fns": "^2.23.0",
+		"framer-motion": "^4.1.17",
+		"next": "latest",
+		"next-images": "^1.8.1",
+		"next-sanity": "^0.4.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-icons": "^4.2.0",
+		"react-responsive-carousel": "^3.2.20"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.3.1",
+		"postcss": "^8.3.6",
+		"tailwindcss": "^2.2.7"
+	}
 }
