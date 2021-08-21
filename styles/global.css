@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 @layer base {
-	
 }
 
 @layer components {
@@ -37,5 +36,12 @@
 	}
 	.max-w-100 {
 		max-width: 100%;
+	}
+	.-z-1 {
+		z-index: -1;
+	}
+
+	.origin-0 {
+		transform-origin: 0%;
 	}
 }
