@@ -1,9 +1,9 @@
 import {PortableText, sanityClient, urlFor} from '../../lib/sanity';
 import Date from '../../components/Date';
 import {motion} from 'framer-motion';
+import {useRouter} from 'next/router';
 
 const postQuery = `*[_type =='post' && slug.current == $slug][0]{
-	
 	_id,
 	title,
 	slug,
@@ -53,9 +53,14 @@ const mainVariants = {
 };
 
 export default function OnePost({data}) {
+	const router = useRouter();
+	if (!router.isFallback && !slug) {
+		return <div>Loading...</div>;
+	}
 	const {onePost} = data;
+	if (!data) return <div>Loading...</div>;
 
-	const estimatesReadingTime = Math.round(onePost.estimatedWordCount / 200);
+	const estimatesReadingTime = Math.round(onePost?.estimatedWordCount / 200);
 	return (
 		<main className='mt-28 min-h-screen '>
 			<section className='container mx-auto px-2'>
