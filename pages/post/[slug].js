@@ -1,4 +1,4 @@
-import {PortableText, sanityClient, urlFor} from '../../lib/sanity';
+import {sanityClient, urlFor, usePreviewSubscription, PortableText} from '../../lib/sanity';
 import Date from '../../components/Date';
 import {motion} from 'framer-motion';
 import {useRouter} from 'next/router';
@@ -52,15 +52,15 @@ const mainVariants = {
 	},
 };
 
-export default function OnePost({data}) {
-	const router = useRouter();
-	if (!router.isFallback && !slug) {
-		return <div>Loading...</div>;
-	}
-	const {onePost} = data;
+export default function OnePost({data, preview}) {
 	if (!data) return <div>Loading...</div>;
+	const {data: post} = usePreviewSubscription(postQuery, {
+		params: {slug: data.post?.slug.current},
+		initialData: data,
+		enabled: preview,
+	});
 
-	const estimatesReadingTime = Math.round(onePost?.estimatedWordCount / 200);
+	const estimatesReadingTime = Math.round(post?.estimatedWordCount / 200);
 	return (
 		<main className='mt-28 min-h-screen '>
 			<section className='container mx-auto px-2'>
@@ -73,19 +73,19 @@ export default function OnePost({data}) {
 									initial='initial'
 									animate='animate'
 									className='text-2xl lg:text-6xl mb-4 font-thin uppercase bg-white bg-opacity-75 px-1 py-1 rounded'>
-									{onePost.title}
+									{post?.title}
 								</motion.h2>
 							</div>
 						</div>
 						<img
-							src={urlFor(onePost.mainImage).url()}
-							alt={onePost.title}
+							src={urlFor(post?.mainImage).url()}
+							alt={post.title}
 							className='w-full object-cover rounded-t'
 							style={{height: '400px'}}
 						/>
 					</div>
 					<span className='block uppercase text-sm px-16 lg:px-48 mt-4 font-bold'>
-						<Date dateString={onePost.publishedAt} />
+						<Date dateString={post?.publishedAt} />
 					</span>
 					<span className='block font-thin uppercase text-sm px-16 lg:px-48 mt-1 '>
 						{estimatesReadingTime} Min Read
@@ -95,12 +95,19 @@ export default function OnePost({data}) {
 						initial='initial'
 						animate='animate'
 						className='pb-8 px-16 lg:px-48 prose lg:prose-xl max-w-full mt-4 font-trade font-normal'>
-						<PortableText blocks={onePost.body} />
+						<PortableText blocks={post?.body} />
 					</motion.div>
 				</article>
 			</section>
 		</main>
 	);
+}
+
+export async function getStaticProps({params}) {
+	const {slug} = params;
+	const post = await sanityClient.fetch(postQuery, {slug});
+
+	return {props: {data: {post}, preview: true}};
 }
 
 export async function getStaticPaths() {
@@ -115,11 +122,4 @@ export async function getStaticPaths() {
 		paths,
 		fallback: true,
 	};
-}
-
-export async function getStaticProps({params}) {
-	const {slug} = params;
-	const onePost = await sanityClient.fetch(postQuery, {slug});
-
-	return {props: {data: {onePost}}};
 }

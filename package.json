@@ -2,11 +2,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"prebuild": "echo 'Building Sanity to public/ptrainerStudio' && cd ptrainerStudio && npx sanity build ../public/ptrainerStudio -y && echo 'Done'",
 		"build": "next build",
-		"start": "next start",
-		"sanity": "cd ptrainerStudio && sanity start",
-		"lint": "next lint"
+		"start": "next start"
 	},
 	"dependencies": {
 		"@googlemaps/js-api-loader": "^1.12.2",
