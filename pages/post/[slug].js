@@ -2,6 +2,7 @@ import {sanityClient, urlFor, usePreviewSubscription, PortableText} from '../../
 import Date from '../../components/Date';
 import {motion} from 'framer-motion';
 import {useRouter} from 'next/router';
+import ErrorPage from 'next/error';
 
 const postQuery = `*[_type =='post' && slug.current == $slug][0]{
 	_id,
@@ -53,12 +54,15 @@ const mainVariants = {
 };
 
 export default function OnePost({data, preview}) {
-	if (!data) return <div>Loading...</div>;
+	const router = useRouter();
 	const {data: post} = usePreviewSubscription(postQuery, {
 		params: {slug: data.post?.slug.current},
 		initialData: data,
 		enabled: preview,
 	});
+	if (!router.isFallback && !post.slug) {
+		return <ErrorPage statusCode={404} />;
+	}
 
 	const estimatesReadingTime = Math.round(post?.estimatedWordCount / 200);
 	return (
